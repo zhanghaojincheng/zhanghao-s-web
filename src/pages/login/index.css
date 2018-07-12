@@ -1,0 +1,16 @@
+.login-wrapper {
+    width: 100%;
+    height: 100vh;
+    background-image: url(../../assets/images/back.jpg);
+    background-size:100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-wrapper {
+    width: 494px;
+    height: 286px;
+    background:#fff;
+    border: 1px solid #666;
+    box-shadow:1px 1px 5px 3px #888;
+}
