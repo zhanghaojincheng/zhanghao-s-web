@@ -1,0 +1,5 @@
+.vue-wrapper p {
+    height: 40px;
+    line-height: 40px;
+    color: rgb(115, 180, 202);
+}

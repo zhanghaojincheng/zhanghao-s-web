@@ -1,0 +1,7 @@
+.header-wrapper {
+    padding: 0 100px;
+}
+.header-wrapper .my-right {
+    float: right;
+    color: rgba(0, 0, 0, 0.65);
+}

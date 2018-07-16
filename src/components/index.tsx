@@ -1,5 +1,8 @@
 import * as React from 'react';
 import { AppStore } from '../App.store';
+import Header from './header';
+import Content from './content';
+import Footer from './footer';
 
 interface IProps {
     appStore?: AppStore;
@@ -8,11 +11,14 @@ interface IProps {
 class BasicLayout extends React.Component<IProps> {
     constructor(props: IProps) {
         super(props);
+        // console.log(props)
     }
-    render() {
+    public render() {
         return (
             <div>
-                123
+                <Header />
+                <Content />
+                <Footer />
             </div>
         )
     }

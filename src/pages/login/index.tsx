@@ -19,7 +19,7 @@ class Login extends React.Component<IProps> {
     constructor(props: IProps) {
         super(props);
         this.appStore = props.appStore!;
-        console.log(props)
+        // console.log(props)
     };
     public handleSubmit = (e: React.SyntheticEvent<HTMLElement>) => {
         const { login } = this.appStore;

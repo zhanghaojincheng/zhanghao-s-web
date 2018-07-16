@@ -13,15 +13,17 @@ class App extends React.Component {
     return (
       <Provider appStore={appStore}>
         <BrowserRouter>
-          <Switch>
-            <Route path="/" render={ function (props) {
-               logined ? <Redirect to="/home" /> : <Login />
-              } 
-            } 
-            />
-            <Route exact path="/login" component={ Login } />
-            <Route exact path="/home" component={ BasicLayout } />
-          </Switch>
+            {logined ? 
+                <Switch>
+                  <Route path="/home" component={BasicLayout} />
+                  <Redirect from="/" to="/home" />
+                </Switch>
+              : 
+              <Switch>
+                <Route exact={true} path="/login" component={Login} />
+                <Redirect to="/login" />
+              </Switch>
+            }
         </BrowserRouter>
       </Provider>
     );
