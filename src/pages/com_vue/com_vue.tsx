@@ -2,6 +2,7 @@ import * as React from 'react';
 import { AppStore } from '../../App.store';
 import { VueStore } from './vue.store';
 import { observer, inject } from 'mobx-react';
+import Level from '../../components/com_level';
 
 import './vue.css';
 
@@ -19,13 +20,7 @@ class ComVue extends React.Component<IProps> {
     
     public render() {
         return (
-            <div className="vue-wrapper">
-                <p>vue</p>
-                <p>vue</p>
-                <p>vue</p>
-                <p>vue</p>
-                <p>vue</p>
-            </div>
+            <Level />
         )
     }
 } 

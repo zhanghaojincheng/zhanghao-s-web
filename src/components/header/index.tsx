@@ -1,28 +1,34 @@
 import * as React from 'react';
-import { Menu, Icon, Dropdown, Affix } from 'antd';
+import { Menu, Dropdown, Affix } from 'antd';
 import { AppStore } from '../../App.store';
 import { observer, inject } from 'mobx-react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import './header.css';
 
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
-
-interface IProps {
+// const SubMenu = Menu.SubMenu;
+// const MenuItemGroup = Menu.ItemGroup;
+interface IRouter {
     appStore?: AppStore;
+    history: any;
+    location: any;
+    match: any;
 }
 
+// <RouteComponentProps<any>, {}>
 @inject('appStore')
 @observer
-class Header extends React.Component<IProps> {
-
+class Header extends React.Component<IRouter> {
+    public appStore: AppStore;
+    
     public state = {
         current: 'mail'
     }
-    constructor(props: IProps) {
-        super(props);
+    constructor(props: IRouter) {
+        super(props)
         this.onLogout = this.onLogout.bind(this);
+        this.goMyReact = this.goMyReact.bind(this);
+        // console.log(props)
     }
     public handleClick = (e: any) => {
         this.setState({
@@ -33,6 +39,9 @@ class Header extends React.Component<IProps> {
         const { setLogined } = this.props.appStore!;
         setLogined(false);
     }
+    public goMyReact() {
+        this.props.history.goBack();
+    }
     public render() {
         const MyMenu = (
             <Menu>
@@ -42,7 +51,7 @@ class Header extends React.Component<IProps> {
                     </span>
                 </Menu.Item>
                 <Menu.Item>
-                    <span>
+                    <span onClick={this.goMyReact}>
                         我的
                     </span>
                 </Menu.Item>
@@ -56,7 +65,7 @@ class Header extends React.Component<IProps> {
                     mode="horizontal"
                     className="header-wrapper"
                 >
-                    <Menu.Item key="home">
+                    {/* <Menu.Item key="home">
                         <Icon type="home" />首页
                     </Menu.Item>
                     <Menu.Item key="overview">
@@ -84,7 +93,7 @@ class Header extends React.Component<IProps> {
                             <Menu.Item key="node">node</Menu.Item>
                             <Menu.Item key="mongodb">MongoDB</Menu.Item>
                         </MenuItemGroup>
-                    </SubMenu>
+                    </SubMenu> */}
                     <Dropdown overlay={MyMenu} placement="bottomRight" className="my-right">
                         <a className="ant-dropdown-link" href="#">
                             我的
@@ -96,4 +105,4 @@ class Header extends React.Component<IProps> {
     }
 }
 
-export default Header;
+export default withRouter(Header);

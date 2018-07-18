@@ -6,10 +6,12 @@ export class AppStore {
 
     @observable public loading: boolean = false;
 
+    @observable public selectedKeys: string[] = [];
+
     public login = (loginBody: ILoginBody) => {
         if (loginBody.userName === '1' && loginBody.password === '1')  {
             // console.log('ok');
-            this.setLogined(true)
+            this.setLogined(true);
         } else {
             message.error('密码错误', 1);
         }
@@ -24,6 +26,11 @@ export class AppStore {
     public setLogined = (isLogined: boolean) => {
         this.logined = isLogined;
     };
+
+    @action
+    public setSelectedKeys = (selectedKeys: string[]) => {
+        this.selectedKeys = selectedKeys;
+    }
 }
 
 export default new AppStore();

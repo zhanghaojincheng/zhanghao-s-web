@@ -1,7 +1,20 @@
 .content-wrapper {
     width: 100%;
     box-sizing: border-box;
-    min-height: calc(100vh - 84px - 48px);
-    background: #ddd;
-    padding:0 100px;
+    height: calc(100vh - 84px - 48px);
+    background: #fff;
+    padding: 0 100px;
+    font-size: 15px;
+    position: relative;
+}
+.content-wrapper .row-wrapper {
+    height: 100%;
+}
+.content-wrapper .content {
+    padding: 12px;
+}
+.content-wrapper .sider,
+.content-wrapper .content{
+    background: #fff;
+    height: 100%;
 }

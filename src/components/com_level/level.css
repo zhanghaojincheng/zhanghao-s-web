@@ -1,10 +1,9 @@
-
-.vue-wrapper {
+.level-wrapper {
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.vue-wrapper .button {
+.level-wrapper .button {
     margin: 0 20px;
 }
